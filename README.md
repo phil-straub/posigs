@@ -37,8 +37,8 @@ The library provides only three function, namely
     bool posigs_handler_is_running(PosigsHandler * handler);
 ~~~
 
-for creating a singnal handler, terminating a signal handler and obtaining the current state of a
-singal handler (running/not running), respectively.
+for creating a signal handler, terminating a signal handler and obtaining the current state of a
+signal handler (running/not running), respectively.
 
 ### Creating a Signal Handler
 
@@ -55,27 +55,29 @@ The first argument identifies the signal type, the second is an arbitrary parame
 + `sig_action_arg` is a `void`-pointer that is passed to `sig_action`.
 + `timeout` is a struct `timespec` (see references) determining the timeout periode during signal handling.
 In practice, this sets the 'reaction time' when the signal handler is terminated.
-A larger timeout period may also slightly increase performance. It must not be non-zero.
+A larger timeout period may also slightly increase performance. It must not be zero.
 
-Other fields of the struct must not be set manually. The function call will return `true`/`false`
-if creating the signal handler succeeded/failed.
+Other fields of the struct must never be set manually. The function call will return `true`/`false`
+according to whether creating the signal handler succeeded/failed.
 
 ## Destroying a Signal Handler
 
 To stop a signal handler, pass a pointer to the `PosigsHandler` struct to `posigs_destroy_handler`.
-If the signal handler encountered an error before or if a call to the threading library failed, this
-function will return `false`, otherwise `true`.
+If the signal handler encountered an error earlier or if a call to the threading library failed, this
+function will return `false` and otherwise `true`.
 
-## Checking the State of the Signal Handler
+## Querying the State of the Signal Handler
 
 Call `posigs_handler_is_running` on a signal handler to check whether it is still running.
 If it is not, either an error occured or it was passed to `posigs_destroy_handler` earlier.
+
+## Notes
 
 For an example, see `src/main.c`.
 
 It is recommended to only use a single signal handler per process.
 
-__NOTE:__ For C++ projects the header should be included as
+For C++ projects the header should be included as
 
 ~~~Cpp
     extern "C" {#include "posigs.h"}
