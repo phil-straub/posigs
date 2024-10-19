@@ -1,7 +1,7 @@
 # Compiler ##########################################################################################
 
 # gcc 14.2.1 and clang 18.1.8 seem to work
-cc ::= gcc
+cc ::= gcc 
 
 # compiler flags shared between debug and release build
 # (generate position independent code, use GNU/C23 standard, compile to object file without linking)

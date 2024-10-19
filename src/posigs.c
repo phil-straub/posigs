@@ -10,7 +10,7 @@ static int posigs_handler_main(void * arg)
 
     /* while running: wait for signal with timeout and handle signal if one is available */
     while (handler->is_running) {
-        const int signum = sigtimedwait(handler->sig_set, NULL, &handler->timeout);
+        const int signum = sigtimedwait(handler->sig_set, nullptr, &handler->timeout);
         if (signum > 0) {
             handler->sig_action(signum, handler->sig_action_arg);
         }
@@ -29,7 +29,7 @@ static int posigs_handler_main(void * arg)
 bool posigs_create_handler(PosigsHandler * handler)
 {
     /* block any signals in sigs */
-    if (pthread_sigmask(SIG_BLOCK, handler->sig_set, NULL) != 0) {
+    if (pthread_sigmask(SIG_BLOCK, handler->sig_set, nullptr) != 0) {
         return false;
     }
     
