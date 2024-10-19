@@ -4,7 +4,7 @@
 cc ::= gcc
 
 # compiler flags shared between debug and release build
-# (generate position independent code, use C23 standard, compile to object file without linking)
+# (generate position independent code, use GNU/C23 standard, compile to object file without linking)
 CC_FLAGS_BASE ::= -fPIC -std=gnu2x -pthread -c
 
 # flags for debug build (include debug information, optimization level 2, compiler warnings)
