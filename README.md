@@ -90,6 +90,6 @@ For C++ projects the header should be included as
 + [Linux Man Page for signal.h](https://www.man7.org/linux/man-pages/man2/signal.2.html)
 + [POSIX Man Page for sigtimedwait](https://www.man7.org/linux/man-pages/man3/sigtimedwait.3p.html)
 + [POSIX Man Page for pthread_sigmask](https://www.man7.org/linux/man-pages/man3/pthread_sigmask.3p.html)
-+ [LINUX Man Page for timespec](https://www.man7.org/linux/man-pages/man3/timespec.3type.html)
++ [Linux Man Page for timespec](https://www.man7.org/linux/man-pages/man3/timespec.3type.html)
 + [GNU libc Manual for singal sets](https://www.gnu.org/software/libc/manual/html_node/Signal-Sets.html)
 + [GNU libs Manual for ISO threads](https://www.gnu.org/software/libc/manual/html_node/Threads.html)
